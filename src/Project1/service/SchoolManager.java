@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 public class SchoolManager {
     private Map<String, Teacher> teacherMap;
@@ -58,20 +60,11 @@ public class SchoolManager {
     }
 
     public void dataSave() {
-        FileUtil.save("alunos.dat", studentMap);
-        FileUtil.save("professores.dat", studentMap);
-        FileUtil.save("turmas.dat", (Map<String, Student>) classRooms);
+        FileUtil.save("classrooms.dat", classRooms);
     }
 
     public void dataLoad() {
-        List<Student> alunos = FileUtil.Load("alunos.dat");
-        if (alunos != null) studentMap = studentMap;
-
-        List<Teacher> profs = FileUtil.Load("professores.dat");
-        if (profs != null) teacherMap = teacherMap;
-
-        List<ClassRoom> turmas = FileUtil.Load("turmas.dat");
-        if (turmas != null) classRooms = turmas;
+        classRooms = FileUtil.load("classrooms.dat");
     }
 
 }

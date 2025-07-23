@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FileUtil {
+public class FileUtilCurrentFile {
     public static <T> void saveToFile(List<T> data, String fileName){
         try (ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream(fileName))){
             outputStream.writeObject(data);

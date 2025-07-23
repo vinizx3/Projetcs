@@ -20,7 +20,7 @@ Este projeto é um sistema de gerenciamento de escola desenvolvido em **Java**, 
 - Polimorfismo
 - Abstração
 - Estruturação de projeto em pacotes
-- Manipulação de arquivos (persistência em `.txt`) *(em andamento)*
+- Manipulação de arquivos (persistência em arquivos)
 - Java Collections (List, Map)
 - Menu interativo no terminal
 

@@ -60,6 +60,8 @@ public class BankingService{
             return null;
         }
         SavingAccount newSavingAccount = new SavingAccount(accountNumber++, customer);
+        customer.addNewAccount(newSavingAccount);
+        accountList.add(newSavingAccount);
         System.out.println("Successfully Current account created. Nº: " + newSavingAccount.getNum());
         return newSavingAccount;
     }

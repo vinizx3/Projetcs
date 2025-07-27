@@ -1,5 +1,6 @@
 package project3.model;
 
+import project3.Interface.Transactional;
 import project3.exceptions.InsufficientBalance;
 
 import java.io.Serializable;
@@ -8,7 +9,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class Account implements Serializable{
+public abstract class Account implements Transactional, Serializable {
     protected int num;
     protected BankCustomer holder;
     protected double balance;
@@ -44,6 +45,7 @@ public abstract class Account implements Serializable{
             System.out.println(transition);
         }
     }
+    @Override
     public void transfer(Account source, double amount) throws InsufficientBalance {
         if (amount <= 0) {
             throw new IllegalArgumentException("Transfer amount must be positive");
@@ -55,7 +57,8 @@ public abstract class Account implements Serializable{
         this.addTransaction("Transfer sent of R$ " + amount + " to account " + source.getNum());
         source.addTransaction("Received transfer of R$ " + amount + " of the account " + this.getNum());
     }
-
+    @Override
     public abstract void withdraw(double amount) throws InsufficientBalance;
+    @Override
     public abstract void deposit(double amount) throws InsufficientBalance;
 }
